@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "693171024276",
+    "project_id": "mumbaemart",
+    "storage_bucket": "mumbaemart.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693171024276:android:05e75b4db02d40d9a8df81",
+        "android_client_info": {
+          "package_name": "com.example.mumbaemart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693171024276-upied1nhat7q6dklitffmv5c68b9camp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcxifm1nvBg56IZRGO10ZHfvg5TG0QPFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693171024276-upied1nhat7q6dklitffmv5c68b9camp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
