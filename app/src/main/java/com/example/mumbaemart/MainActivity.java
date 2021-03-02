@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
-        actionBarLogo = findViewById(R.id.actionbar_logo);
         setSupportActionBar(toolbar);
+        actionBarLogo = findViewById(R.id.actionbar_logo);
         window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(registerIntent);
             }
         });
+
         dialogSignUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (currentUser != null) {
             int id = item.getItemId();
-            if (id == R.id.nav_my_grocery) {
+            if (id == R.id.nav_home) {
                 actionBarLogo.setVisibility(View.VISIBLE);
                 invalidateOptionsMenu();
                 setFragment(new HomeFragment(), HOME_FRAGMENT);
@@ -251,6 +252,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(frameLayout.getId(), fragment);
             fragmentTransaction.commit();
         }
+    }
+
+    public boolean isSetSignUpFragment() {
+        return setSignUpFragment;
+    }
+
+    public void setSetSignUpFragment(boolean setSignUpFragment) {
+        this.setSignUpFragment = setSignUpFragment;
     }
 }
 

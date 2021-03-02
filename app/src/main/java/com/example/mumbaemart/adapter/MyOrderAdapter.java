@@ -65,12 +65,9 @@ public class MyOrderAdapter extends RecyclerView.Adapter<MyOrderAdapter.Viewhold
             deliveryStatus = itemView.findViewById(R.id.order_delivered_date);
             rateNowContainer = itemView.findViewById(R.id.rate_now_container);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent orderDetailsIntent = new Intent(itemView.getContext(), OrderDetailsActivity.class);
-                    itemView.getContext().startActivity(orderDetailsIntent);
-                }
+            itemView.setOnClickListener(v -> {
+                Intent orderDetailsIntent = new Intent(itemView.getContext(), OrderDetailsActivity.class);
+                itemView.getContext().startActivity(orderDetailsIntent);
             });
         }
 

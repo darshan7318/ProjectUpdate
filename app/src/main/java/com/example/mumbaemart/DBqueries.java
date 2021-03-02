@@ -11,18 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mumbaemart.adapter.CategoryAdapter;
-import com.example.mumbaemart.adapter.MyGroceryPageAdapter;
+import com.example.mumbaemart.adapter.HomePageAdapter;
 import com.example.mumbaemart.model.CategoryModel;
 import com.example.mumbaemart.model.HorizontalProductScrollModel;
 import com.example.mumbaemart.model.HomePageModel;
 import com.example.mumbaemart.model.SliderModel;
 import com.example.mumbaemart.model.WishlistModel;
-import com.example.mumbaemart.model.HomePageModel;
-import com.example.mumbaemart.model.WishlistModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -125,9 +122,9 @@ public class DBqueries {
                                     lists.get(index).add(new HomePageModel(3, documentSnapshot.get("layout_title").toString(), documentSnapshot.get("layout_background").toString(),GridLayoutModelList));
                                 }
                             }
-                            MyGroceryPageAdapter myGroceryPageAdapter = new MyGroceryPageAdapter(lists.get(index));
-                            myGroceryPageRecyclerView.setAdapter(myGroceryPageAdapter);
-                            myGroceryPageAdapter.notifyDataSetChanged();
+                            HomePageAdapter homePageAdapter = new HomePageAdapter(lists.get(index));
+                            myGroceryPageRecyclerView.setAdapter(homePageAdapter);
+                            homePageAdapter.notifyDataSetChanged();
                             HomeFragment.swipeRefreshLayout.setRefreshing(false);
                         }else {
                             String error = Objects.requireNonNull(task.getException()).getMessage();

@@ -18,10 +18,6 @@ public class HomePageModel {
         this.sliderModelList = sliderModelList;
     }
 
-    public HomePageModel() {
-
-    }
-
     public int getType() {
         return type;
     }

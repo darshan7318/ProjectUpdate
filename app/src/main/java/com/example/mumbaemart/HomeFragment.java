@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.mumbaemart.adapter.CategoryAdapter;
-import com.example.mumbaemart.adapter.MyGroceryPageAdapter;
+import com.example.mumbaemart.adapter.HomePageAdapter;
 import com.example.mumbaemart.model.CategoryModel;
 import com.example.mumbaemart.model.HorizontalProductScrollModel;
 import com.example.mumbaemart.model.HomePageModel;
@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
     private CategoryAdapter categoryAdapter = new CategoryAdapter(categoryModelList);
     private RecyclerView homePageRecyclerView;
     private final List<HomePageModel> homePageModelFakeList = new ArrayList<>();
-    private MyGroceryPageAdapter adapter;
+    private HomePageAdapter adapter;
     private ImageView noInternetConnection;
     private Button retryBtn;
 
@@ -83,46 +83,46 @@ public class HomeFragment extends Fragment {
         testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         homePageRecyclerView.setLayoutManager(testingLayoutManager);
 
-        categoryModelFakeList.add(new CategoryModel("null", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
-        categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("null", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
+        //categoryModelFakeList.add(new CategoryModel("", ""));
 
 
-        List<SliderModel> sliderModelFakeList = new ArrayList<>();
-        sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
-        sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
-        sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
-        sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
-        sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
+        //List<SliderModel> sliderModelFakeList = new ArrayList<>();
+        //sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
+        //sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
+        //sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
+        //sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
+        //sliderModelFakeList.add(new SliderModel("null", "#dfdfdf"));
 
-        List<HorizontalProductScrollModel> horizontalProductScrollModelFakeList = new ArrayList<>();
-        horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
-        horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
-        horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
-        horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
-        horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
-        horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
-        horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
+        //List<HorizontalProductScrollModel> horizontalProductScrollModelFakeList = new ArrayList<>();
+        //horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
+        //horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
+        //horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
+        //horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
+        //horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
+        //horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
+        //horizontalProductScrollModelFakeList.add(new HorizontalProductScrollModel("", "", "", "",""));
 
-        homePageModelFakeList.add(new HomePageModel(0, sliderModelFakeList));
-        homePageModelFakeList.add(new HomePageModel(1, "","#dfdfdf"));
-        homePageModelFakeList.add(new HomePageModel(2, "","#dfdfdf",horizontalProductScrollModelFakeList,new ArrayList<WishlistModel>()));
-        homePageModelFakeList.add(new HomePageModel(3, "","#dfdfdf",horizontalProductScrollModelFakeList));
+        //homePageModelFakeList.add(new HomePageModel(0, sliderModelFakeList));
+        //homePageModelFakeList.add(new HomePageModel(1, "","#dfdfdf"));
+        //homePageModelFakeList.add(new HomePageModel(2, "","#dfdfdf",horizontalProductScrollModelFakeList,new ArrayList<WishlistModel>()));
+        //homePageModelFakeList.add(new HomePageModel(3, "","#dfdfdf",horizontalProductScrollModelFakeList));
 
-        categoryAdapter = new CategoryAdapter(categoryModelFakeList);
+        //categoryAdapter = new CategoryAdapter(categoryModelFakeList);
 
-        adapter = new MyGroceryPageAdapter(homePageModelFakeList);
+        //adapter = new HomePageAdapter(homePageModelFakeList);
 
         ConnectivityManager connectivityManager = (ConnectivityManager) Objects.requireNonNull(getActivity()).getSystemService(Context.CONNECTIVITY_SERVICE);
         networkInfo = connectivityManager.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected() == true) {
+        if (networkInfo != null && networkInfo.isConnected()) {
             MainActivity.drawer.setDrawerLockMode(0);
             noInternetConnection.setVisibility(View.GONE);
             retryBtn.setVisibility(View.GONE);
@@ -143,7 +143,7 @@ public class HomeFragment extends Fragment {
 
                 loadFragmentData(homePageRecyclerView,getContext(),0,"Home");
             }else {
-                adapter = new MyGroceryPageAdapter(lists.get(0));
+                adapter = new HomePageAdapter(lists.get(0));
                 adapter.notifyDataSetChanged();
             }
             homePageRecyclerView.setAdapter(adapter);
@@ -157,20 +157,12 @@ public class HomeFragment extends Fragment {
             retryBtn.setVisibility(View.VISIBLE);
         }
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(true);
-                reloadPage();
-            }
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            swipeRefreshLayout.setRefreshing(true);
+            reloadPage();
         });
 
-        retryBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                reloadPage();
-            }
-        });
+        retryBtn.setOnClickListener(v -> reloadPage());
         return view;
     }
 
@@ -180,21 +172,21 @@ public class HomeFragment extends Fragment {
         categoryModelList.clear();
         lists.clear();
         loadedCategoriesNames.clear();
-        if (networkInfo != null && networkInfo.isConnected() == true) {
+        if (networkInfo != null && networkInfo.isConnected()) {
             MainActivity.drawer.setDrawerLockMode(0);
             noInternetConnection.setVisibility(View.GONE);
             retryBtn.setVisibility(View.GONE);
             categoryRecyclerView.setVisibility(View.VISIBLE);
             homePageRecyclerView.setVisibility(View.VISIBLE);
             categoryAdapter = new CategoryAdapter(categoryModelFakeList);
-            adapter = new MyGroceryPageAdapter(homePageModelFakeList);
+            adapter = new HomePageAdapter(homePageModelFakeList);
             categoryRecyclerView.setAdapter(categoryAdapter);
             homePageRecyclerView.setAdapter(adapter);
 
             loadCategories(categoryRecyclerView,getContext());
 
             loadedCategoriesNames.add("HOME");
-            lists.add(new ArrayList<HomePageModel>());
+            lists.add(new ArrayList<>());
             loadFragmentData(homePageRecyclerView,getContext(),0,"Home");
 
         }else {

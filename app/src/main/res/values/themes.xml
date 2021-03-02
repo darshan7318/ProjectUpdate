@@ -1,13 +1,14 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Theme.Mumbaemart" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-            <item name="colorPrimary">@color/colorPrimary</item>
-            <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-            <item name="colorAccent">@color/colorAccent</item>
-            <item name="windowNoTitle">true</item>
-            <item name="windowActionBar">false</item>
-            <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
-        </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+    </style>
+
     <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
         <item name="color">@android:color/white</item>
@@ -26,6 +27,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorPrimary</item>>
     </style>
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">PopupOverlay</style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">AppBarOverlay</style>

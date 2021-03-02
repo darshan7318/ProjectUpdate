@@ -64,10 +64,6 @@ public class SignUpFragment extends Fragment {
 
     public static boolean disableCloseBtn = false;
 
-    public SignUpFragment() {
-        // Required empty public constructor
-    }
-
 
     @SuppressLint("CutPasteId")
     @Override

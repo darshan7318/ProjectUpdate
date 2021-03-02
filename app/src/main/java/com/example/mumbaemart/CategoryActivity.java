@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-import com.example.mumbaemart.adapter.MyGroceryPageAdapter;
+import com.example.mumbaemart.adapter.HomePageAdapter;
 import com.example.mumbaemart.model.HorizontalProductScrollModel;
 import com.example.mumbaemart.model.HomePageModel;
 import com.example.mumbaemart.model.SliderModel;
@@ -64,7 +64,7 @@ public class CategoryActivity extends AppCompatActivity {
         testingLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         categoryRecyclerView.setLayoutManager(testingLayoutManager);
 
-        MyGroceryPageAdapter adapter = new MyGroceryPageAdapter(homePageModelFakeList);
+        HomePageAdapter adapter = new HomePageAdapter(homePageModelFakeList);
 
         int listPosition = 0;
         for (int x = 0;x < loadedCategoriesNames.size();x++) {
@@ -77,7 +77,7 @@ public class CategoryActivity extends AppCompatActivity {
             lists.add(new ArrayList<HomePageModel>());
             loadFragmentData(categoryRecyclerView,this,loadedCategoriesNames.size() - 1,title);
         }else {
-            adapter = new MyGroceryPageAdapter(lists.get(listPosition));
+            adapter = new HomePageAdapter(lists.get(listPosition));
         }
         categoryRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

@@ -37,13 +37,13 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MyGroceryPageAdapter extends RecyclerView.Adapter {
+public class HomePageAdapter extends RecyclerView.Adapter {
 
     private final List<HomePageModel> homePageModelList;
     private final RecyclerView.RecycledViewPool recycledViewPool;
     private int lastPosition = -1;
 
-    public MyGroceryPageAdapter(List<HomePageModel> homePageModelList) {
+    public HomePageAdapter(List<HomePageModel> homePageModelList) {
         this.homePageModelList = homePageModelList;
         recycledViewPool = new RecyclerView.RecycledViewPool();
     }
@@ -331,27 +331,21 @@ public class MyGroceryPageAdapter extends RecyclerView.Adapter {
 
                 if (!title.equals("")) {
                     final int finalX = x;
-                    gridProductLayout.getChildAt(x).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent productDetailsIntent = new Intent(itemView.getContext(), ProductDetailsActivity.class);
-                            productDetailsIntent.putExtra("PRODUCT_ID", horizontalProductScrollModelList.get(finalX).getProductID());
-                            itemView.getContext().startActivity(productDetailsIntent);
-                        }
+                    gridProductLayout.getChildAt(x).setOnClickListener(v -> {
+                        Intent productDetailsIntent = new Intent(itemView.getContext(), ProductDetailsActivity.class);
+                        productDetailsIntent.putExtra("PRODUCT_ID", horizontalProductScrollModelList.get(finalX).getProductID());
+                        itemView.getContext().startActivity(productDetailsIntent);
                     });
                 }
             }
 
             if (!title.equals("")) {
-                gridLayoutViewAllBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ViewAllActivity.horizontalProductScrollModelList = horizontalProductScrollModelList;
-                        Intent viewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
-                        viewAllIntent.putExtra("layo`ut_code", 1);
-                        viewAllIntent.putExtra("title", title);
-                        itemView.getContext().startActivity(viewAllIntent);
-                    }
+                gridLayoutViewAllBtn.setOnClickListener(v -> {
+                    ViewAllActivity.horizontalProductScrollModelList = horizontalProductScrollModelList;
+                    Intent viewAllIntent = new Intent(itemView.getContext(), ViewAllActivity.class);
+                    viewAllIntent.putExtra("layo`ut_code", 1);
+                    viewAllIntent.putExtra("title", title);
+                    itemView.getContext().startActivity(viewAllIntent);
                 });
             }
         }
